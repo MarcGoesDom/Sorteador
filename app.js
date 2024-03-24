@@ -4,10 +4,18 @@ function sortear(){
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
 
-   /* if (ate < de ){
-        alert(`Digite um numero maior que: ${de}`);
-   
-    } */
+    if (ate < de ){
+        alert(`Digite um numero maior que: ${de} no campo até o número`);
+        document.getElementById('ate').value = '';
+        return;
+    } 
+
+    if(quantidade > ate - de + 1){
+        alert(`o numero digitado não atende aos requisitos`);
+        document.getElementById('ate').value = '';
+        return;
+    }
+    
     
 
     let sorteados = [];
@@ -20,7 +28,8 @@ function sortear(){
 
         while(sorteados.includes(numero)){
             numero = obterNumeroAleatorio(de, ate)
-        }
+
+           }
         sorteados.push(numero);
     
     }
